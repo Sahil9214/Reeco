@@ -1,0 +1,214 @@
+{
+    "reeco": [
+      {
+        "id": 1,
+        "name": "Apple",
+        "price": "23",
+        "quantity": 10,
+        "total": 15,
+        "brand": "Fresh Fruits Co.",
+        "status": "Approved",
+        "image": "https://media.istockphoto.com/id/94929126/photo/avocados-isolated-on-white.jpg?s=612x612&w=0&k=20&c=c0BSuWnUTAkZyj-cYHKzR5dXtZWQ1_3PXcea3M92Z4I="
+      },
+      {
+        "id": 2,
+        "name": "Banana",
+        "price": 0.75,
+        "quantity": 22,
+        "total": 15,
+        "brand": "Tropical Harvest",
+        "status": "Approved",
+        "image": "https://media.istockphoto.com/id/94929126/photo/avocados-isolated-on-white.jpg?s=612x612&w=0&k=20&c=c0BSuWnUTAkZyj-cYHKzR5dXtZWQ1_3PXcea3M92Z4I="
+      },
+      {
+        "id": 3,
+        "name": "Orange",
+        "price": 1,
+        "quantity": 14,
+        "total": 15,
+        "brand": "Citrus Farms",
+        "status": "Missing",
+        "image": "https://media.istockphoto.com/id/94929126/photo/avocados-isolated-on-white.jpg?s=612x612&w=0&k=20&c=c0BSuWnUTAkZyj-cYHKzR5dXtZWQ1_3PXcea3M92Z4I="
+      },
+      {
+        "id": 4,
+        "name": "Grapes",
+        "price": 2,
+        "quantity": 8,
+        "total": 16,
+        "brand": "Vineyard Fresh",
+        "status": "Missing-urgent",
+        "image": "https://media.istockphoto.com/id/94929126/photo/avocados-isolated-on-white.jpg?s=612x612&w=0&k=20&c=c0BSuWnUTAkZyj-cYHKzR5dXtZWQ1_3PXcea3M92Z4I="
+      },
+      {
+        "id": 5,
+        "name": "Strawberry",
+        "price": 1.2,
+        "quantity": 15,
+        "total": 14.4,
+        "brand": "Berry Delights",
+        "status": "Missing-urgent",
+        "image": "https://media.istockphoto.com/id/94929126/photo/avocados-isolated-on-white.jpg?s=612x612&w=0&k=20&c=c0BSuWnUTAkZyj-cYHKzR5dXtZWQ1_3PXcea3M92Z4I="
+      },
+      {
+        "id": 6,
+        "name": "Mango",
+        "price": 2.5,
+        "quantity": 5,
+        "total": 12.5,
+        "brand": "Tropical Harvest",
+        "status": "Missing",
+        "image": "https://media.istockphoto.com/id/94929126/photo/avocados-isolated-on-white.jpg?s=612x612&w=0&k=20&c=c0BSuWnUTAkZyj-cYHKzR5dXtZWQ1_3PXcea3M92Z4I="
+      },
+      {
+        "id": 7,
+        "name": "Watermelon",
+        "price": 3,
+        "quantity": 3,
+        "total": 9,
+        "brand": "Farm Fresh",
+        "status": "",
+        "image": "https://media.istockphoto.com/id/94929126/photo/avocados-isolated-on-white.jpg?s=612x612&w=0&k=20&c=c0BSuWnUTAkZyj-cYHKzR5dXtZWQ1_3PXcea3M92Z4I="
+      },
+      {
+        "id": 8,
+        "name": "Pineapple",
+        "price": 2.2,
+        "quantity": 8,
+        "total": 15.4,
+        "brand": "Tropical Harvest",
+        "status": "",
+        "image": "https://media.istockphoto.com/id/94929126/photo/avocados-isolated-on-white.jpg?s=612x612&w=0&k=20&c=c0BSuWnUTAkZyj-cYHKzR5dXtZWQ1_3PXcea3M92Z4I="
+      },
+      {
+        "id": 9,
+        "name": "Kiwi",
+        "price": 1.8,
+        "quantity": 10,
+        "total": 18,
+        "brand": "Exotic Delights",
+        "status": "",
+        "image": "https://media.istockphoto.com/id/94929126/photo/avocados-isolated-on-white.jpg?s=612x612&w=0&k=20&c=c0BSuWnUTAkZyj-cYHKzR5dXtZWQ1_3PXcea3M92Z4I="
+      },
+      {
+        "id": 10,
+        "name": "Blueberry",
+        "price": 2.3,
+        "quantity": 6,
+        "total": 13.8,
+        "brand": "Berry Delights",
+        "status": "",
+        "image": "https://media.istockphoto.com/id/94929126/photo/avocados-isolated-on-white.jpg?s=612x612&w=0&k=20&c=c0BSuWnUTAkZyj-cYHKzR5dXtZWQ1_3PXcea3M92Z4I="
+      },
+      {
+        "id": 11,
+        "name": "Avocado",
+        "price": 2.8,
+        "quantity": 9,
+        "total": 25.2,
+        "brand": "Green Harvest",
+        "status": "",
+        "image": "https://media.istockphoto.com/id/94929126/photo/avocados-isolated-on-white.jpg?s=612x612&w=0&k=20&c=c0BSuWnUTAkZyj-cYHKzR5dXtZWQ1_3PXcea3M92Z4I="
+      },
+      {
+        "id": 12,
+        "name": "Peach",
+        "price": 1.6,
+        "quantity": 12,
+        "total": 19.2,
+        "brand": "Orchard Fresh",
+        "status": "",
+        "image": "https://media.istockphoto.com/id/94929126/photo/avocados-isolated-on-white.jpg?s=612x612&w=0&k=20&c=c0BSuWnUTAkZyj-cYHKzR5dXtZWQ1_3PXcea3M92Z4I="
+      },
+      {
+        "id": 13,
+        "name": "Cherry",
+        "price": 2.5,
+        "quantity": 8,
+        "total": 20,
+        "brand": "Vineyard Fresh",
+        "status": "",
+        "image": "https://media.istockphoto.com/id/94929126/photo/avocados-isolated-on-white.jpg?s=612x612&w=0&k=20&c=c0BSuWnUTAkZyj-cYHKzR5dXtZWQ1_3PXcea3M92Z4I="
+      },
+      {
+        "id": 14,
+        "name": "Cantaloupe",
+        "price": 3.2,
+        "quantity": 5,
+        "total": 16,
+        "brand": "Farm Fresh",
+        "status": "",
+        "image": "https://media.istockphoto.com/id/94929126/photo/avocados-isolated-on-white.jpg?s=612x612&w=0&k=20&c=c0BSuWnUTAkZyj-cYHKzR5dXtZWQ1_3PXcea3M92Z4I="
+      },
+      {
+        "id": 15,
+        "name": "Raspberry",
+        "price": 2,
+        "quantity": 10,
+        "total": 20,
+        "brand": "Berry Delights",
+        "status": "",
+        "image": "https://media.istockphoto.com/id/94929126/photo/avocados-isolated-on-white.jpg?s=612x612&w=0&k=20&c=c0BSuWnUTAkZyj-cYHKzR5dXtZWQ1_3PXcea3M92Z4I="
+      },
+      {
+        "id": 16,
+        "name": "Pear",
+        "price": 1.9,
+        "quantity": 15,
+        "total": 28.5,
+        "brand": "Orchard Fresh",
+        "status": "",
+        "image": "https://media.istockphoto.com/id/94929126/photo/avocados-isolated-on-white.jpg?s=612x612&w=0&k=20&c=c0BSuWnUTAkZyj-cYHKzR5dXtZWQ1_3PXcea3M92Z4I="
+      },
+      {
+        "id": 17,
+        "name": "Plum",
+        "price": 2.4,
+        "quantity": 8,
+        "total": 19.2,
+        "brand": "Orchard Fresh",
+        "status": "",
+        "image": "https://media.istockphoto.com/id/94929126/photo/avocados-isolated-on-white.jpg?s=612x612&w=0&k=20&c=c0BSuWnUTAkZyj-cYHKzR5dXtZWQ1_3PXcea3M92Z4I="
+      },
+      {
+        "id": 18,
+        "name": "Apricot",
+        "price": 1.7,
+        "quantity": 12,
+        "total": 20.4,
+        "brand": "Orchard Fresh",
+        "status": "",
+        "image": "https://media.istockphoto.com/id/94929126/photo/avocados-isolated-on-white.jpg?s=612x612&w=0&k=20&c=c0BSuWnUTAkZyj-cYHKzR5dXtZWQ1_3PXcea3M92Z4I="
+      },
+      {
+        "id": 19,
+        "name": "Nectarine",
+        "price": 2.2,
+        "quantity": 10,
+        "total": 22,
+        "brand": "Orchard Fresh",
+        "status": "",
+        "image": "https://media.istockphoto.com/id/94929126/photo/avocados-isolated-on-white.jpg?s=612x612&w=0&k=20&c=c0BSuWnUTAkZyj-cYHKzR5dXtZWQ1_3PXcea3M92Z4I="
+      },
+      {
+        "id": 20,
+        "name": "Mango",
+        "price": 2.5,
+        "quantity": 7,
+        "total": 17.5,
+        "brand": "Tropical Harvest",
+        "status": "",
+        "image": "https://media.istockphoto.com/id/94929126/photo/avocados-isolated-on-white.jpg?s=612x612&w=0&k=20&c=c0BSuWnUTAkZyj-cYHKzR5dXtZWQ1_3PXcea3M92Z4I="
+      },
+      {
+        "id": 1702629028336,
+        "name": "carrot",
+        "price": "45",
+        "quantity": "12",
+        "total": 10,
+        "brand": "picasso",
+        "image": "https://media.istockphoto.com/id/94929126/photo/avocados-isolated-on-white.jpg?s=612x612&w=0&k=20&c=c0BSuWnUTAkZyj-cYHKzR5dXtZWQ1_3PXcea3M92Z4I=",
+        "status": ""
+      }
+    ]
+  }
