@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { IncreaseQuantity, DecreaseQuantity, editPrice } from "../Redux/action";
+import { IncreaseQuantity, DecreaseQuantity, editPrice, actionProductData } from "../Redux/action";
 import { useDispatch } from "react-redux";
 import { Button } from "@chakra-ui/react";
 
@@ -20,6 +20,7 @@ const EditFile = ({ name, brand, image, quantity, total, price, id }) => {
   const handleEditPrice = async () => {
     try {
       dispatch(editPrice({ id, num: editedPrice }));
+      dispatch(actionProductData())
     } catch (err) {
       console.log("err", err);
     }
