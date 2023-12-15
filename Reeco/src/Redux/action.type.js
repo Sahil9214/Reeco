@@ -10,3 +10,7 @@ export const CROSS_MISSING_URGENT='cross/missing/urgent'
 
 export const INCREASE_QUANTITY='INCREASE/QUNATITY';
 export const DECREASE_QUANTITY='DECREASE/QUNATITY';
+
+export const ADD_DATA='add/data'
+
+export const EDIT_PRICE='edit/price'

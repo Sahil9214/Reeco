@@ -6,7 +6,9 @@ import {
   PRODUCT_LOADING,
   RIGHT_APPROVED,
   INCREASE_QUANTITY,
-  DECREASE_QUANTITY
+  DECREASE_QUANTITY,
+  ADD_DATA,
+  EDIT_PRICE,
 } from "./action.type";
 
 const initialState = {
@@ -118,6 +120,26 @@ const reducer = (state = initialState, { type, payload }) => {
           }
           return item;
         }),
+      };
+    case ADD_DATA:
+      return {
+        ...state,
+        products: [...state.product, payload],
+      };
+    case EDIT_PRICE:
+      const { id, num } = payload;
+
+      const updatedProducts = state.product.map((product) => {
+        if (product.id === id) {
+          return { ...product, price: num };
+        }
+        return product;
+      });
+
+      return {
+        ...state,
+        products: updatedProducts,
+        // Add other properties if needed
       };
     default: {
       return state;

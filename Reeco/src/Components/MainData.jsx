@@ -22,6 +22,7 @@ import {
 import check from "../Images/check.png";
 import cross from "../Images/close.png";
 import EditFile from "../Status/EditFile";
+import AddItemPurchase from "../Status/AddItemPurchase";
 const Container = styled.div`
   width: 100%;
   margin: auto;
@@ -212,6 +213,35 @@ const MainData = () => {
       </>
     );
   }
+  //Add Item
+  function AddItem() {
+    const { isOpen, onOpen, onClose } = useDisclosure();
+    return (
+      <>
+        <Button style={{ marginRight: "20px" }} onClick={onOpen}>
+          Add Item
+        </Button>
+
+        <Modal isOpen={isOpen} onClose={onClose}>
+          <ModalOverlay />
+          <ModalContent>
+            <ModalHeader>Add New Item</ModalHeader>
+            <ModalCloseButton />
+            <ModalBody>
+              <AddItemPurchase />
+            </ModalBody>
+
+            <ModalFooter>
+              <Button colorScheme="blue" mr={3} onClick={onClose}>
+                Close
+              </Button>
+              <Button variant="ghost">Secondary Action</Button>
+            </ModalFooter>
+          </ModalContent>
+        </Modal>
+      </>
+    );
+  }
 
   useEffect(() => {
     dispatch(actionProductData());
@@ -227,7 +257,7 @@ const MainData = () => {
           </InputContainer>
         </div>
         <div style={{ display: "flex", alignItems: "center" }}>
-          <Button style={{ marginRight: "20px" }}>Add Item</Button>
+          <AddItem />
           <ResponsiveImage src={printer} alt="Printer" />
         </div>
       </Header>
@@ -247,7 +277,7 @@ const MainData = () => {
               </tr>
             </thead>
             <tbody>
-              {stateVal?.map((el) => (
+              {stateVal?.reverse().map((el) => (
                 <tr key={el.id}>
                   <Td>
                     <ResponsiveImage src={el.image} alt={el.name} />
@@ -256,7 +286,7 @@ const MainData = () => {
                   <Td>{el.brand}</Td>
                   <Td>{el.price}</Td>
                   <Td>{el.quantity}</Td>
-                  <Td>{(el.price*el.quantity).toFixed(2)}</Td>
+                  <Td>{(el.price * el.quantity).toFixed(2)}</Td>
 
                   <Td
                     style={{ display: "flex", justifyContent: "space-around" }}

@@ -6,14 +6,16 @@ import {
   CROSS_MISSING_URGENT,
   CROSS_MISSING,
   INCREASE_QUANTITY,
-  DECREASE_QUANTITY
+  DECREASE_QUANTITY,
+  ADD_DATA,
+  EDIT_PRICE
 } from "./action.type";
 import axios from "axios";
 //getData
 export const actionProductData = (pay) => async (dispatch) => {
   dispatch({ type: PRODUCT_LOADING });
   try {
-    let res = await axios(`http://localhost:8080/reeco`);
+    let res = await axios(`https://rich-ruby-lemming-wear.cyclic.app/reeco`);
 
     dispatch({ type: PRODUCT_DATA, payload: res.data });
   } catch (err) {
@@ -21,18 +23,20 @@ export const actionProductData = (pay) => async (dispatch) => {
   }
 };
 //Approved Data;
-export const actionApprovedData=(id)=>async(dispatch)=>{
-
+export const actionApprovedData = (id) => async (dispatch) => {
   dispatch({ type: PRODUCT_LOADING });
   try {
     let updatedData = { status: "Approved" };
-    let res = await axios.patch(`http://localhost:8080/reeco/${id}`,updatedData);
+    let res = await axios.patch(
+      `https://rich-ruby-lemming-wear.cyclic.app/reeco/${id}`,
+      updatedData
+    );
 
     dispatch({ type: RIGHT_APPROVED, payload: id });
   } catch (err) {
     dispatch({ type: PRODUCT_ERROR });
   }
-}
+};
 
 //Cross Data  Missing;
 export const actionCrossDataMissing = (action) => async (dispatch) => {
@@ -44,16 +48,22 @@ export const actionCrossDataMissing = (action) => async (dispatch) => {
 
   try {
     const updatedData = { status: "Missing" };
-    const res = await axios.patch(`http://localhost:8080/reeco/${id}`, updatedData);
+    const res = await axios.patch(
+      `https://rich-ruby-lemming-wear.cyclic.app/reeco/${id}`,
+      updatedData
+    );
 
     dispatch({ type: CROSS_MISSING, payload: id });
   } catch (err) {
     console.error("Error updating status:", err);
-    dispatch({ type: PRODUCT_ERROR, payload: err.message || "An error occurred" });
+    dispatch({
+      type: PRODUCT_ERROR,
+      payload: err.message || "An error occurred",
+    });
   }
 };
 //Cross Data  Missing Urgent;
-export const actionCrossDataMissingUrgent=(action)=>async(dispatch)=>{
+export const actionCrossDataMissingUrgent = (action) => async (dispatch) => {
   const id = +action.id; // Convert to a number using the unary plus operator
 
   console.log(action.id, typeof action.id);
@@ -62,29 +72,36 @@ export const actionCrossDataMissingUrgent=(action)=>async(dispatch)=>{
   dispatch({ type: PRODUCT_LOADING });
   try {
     let updatedData = { status: "Missing-urgent" };
-    let res = await axios.patch(`http://localhost:8080/reeco/${id}`,updatedData);
+    let res = await axios.patch(
+      `https://rich-ruby-lemming-wear.cyclic.app/reeco/${id}`,
+      updatedData
+    );
 
     dispatch({ type: CROSS_MISSING_URGENT, payload: id });
   } catch (err) {
     dispatch({ type: PRODUCT_ERROR });
   }
-}
+};
 //increase qunatity
 export const IncreaseQuantity = (action) => async (dispatch) => {
-  console.log(action,"skaksha")
+  console.log(action, "skaksha");
   try {
-    const id = +action.id; 
+    const id = +action.id;
     dispatch({ type: PRODUCT_LOADING });
 
     try {
-
       const updatedData = { quantity: action.quantity + 1 };
-      const res = await axios.patch(`http://localhost:8080/reeco/${id}`, updatedData);
+      const res = await axios.patch(
+        `https://rich-ruby-lemming-wear.cyclic.app/reeco/${id}`,
+        updatedData
+      );
 
       dispatch({ type: INCREASE_QUANTITY, payload: id });
     } catch (err) {
-     
-      dispatch({ type: PRODUCT_ERROR, payload: err.message || "An error occurred" });
+      dispatch({
+        type: PRODUCT_ERROR,
+        payload: err.message || "An error occurred",
+      });
     }
   } catch (err) {
     console.log("err", err);
@@ -93,20 +110,48 @@ export const IncreaseQuantity = (action) => async (dispatch) => {
 //Decrease Qunatity
 export const DecreaseQuantity = (action) => async (dispatch) => {
   try {
-    const id = +action.id; 
+    const id = +action.id;
     dispatch({ type: PRODUCT_LOADING });
 
     try {
-  
       const updatedData = { quantity: action.quantity - 1 };
-      const res = await axios.patch(`http://localhost:8080/reeco/${id}`, updatedData);
+      const res = await axios.patch(
+        `https://rich-ruby-lemming-wear.cyclic.app/reeco/${id}`,
+        updatedData
+      );
 
       dispatch({ type: DECREASE_QUANTITY, payload: id });
     } catch (err) {
-     
-      dispatch({ type: PRODUCT_ERROR, payload: err.message || "An error occurred" });
+      dispatch({
+        type: PRODUCT_ERROR,
+        payload: err.message || "An error occurred",
+      });
     }
   } catch (err) {
     console.log("err", err);
+  }
+};
+
+//Add Data;
+export const addPurchaseData = (payload) => async (dispatch) => {
+  try {
+    await axios.post(`https://rich-ruby-lemming-wear.cyclic.app/reeco`, payload);
+    dispatch({ type: ADD_DATA, payload: res.data });
+  } catch (err) {
+    dispatch({ type: PRODUCT_ERROR });
+  }
+};
+
+//edit Price;
+export const editPrice = ({ id, num }) => async (dispatch) => {
+  try {
+  
+    await axios.patch(`https://rich-ruby-lemming-wear.cyclic.app/reeco/${id}`, { price: num });
+    
+    // Dispatch action indicating successful price edit if needed
+    dispatch({ type: EDIT_PRICE, payload: { id, num } });
+  } catch (err) {
+    console.error("Error updating price:", err);
+    dispatch({ type: PRODUCT_ERROR, payload: err.message || "An error occurred" });
   }
 };

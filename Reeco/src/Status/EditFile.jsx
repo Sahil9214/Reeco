@@ -1,24 +1,29 @@
 import React, { useState } from "react";
-import { IncreaseQuantity, DecreaseQuantity } from "../Redux/action";
+import { IncreaseQuantity, DecreaseQuantity, editPrice } from "../Redux/action";
 import { useDispatch } from "react-redux";
+import { Button } from "@chakra-ui/react";
 
 const EditFile = ({ name, brand, image, quantity, total, price, id }) => {
-  
   const dispatch = useDispatch();
-  
-
-
+  const [editedPrice, setEditedPrice] = useState(0);
   const handleIncrease = async ({ id, quantity }) => {
     console.log("id", id);
     console.log("qunatity", quantity);
-    
+
     dispatch(IncreaseQuantity({ id, quantity }));
   };
   const handleDecrease = async ({ id, quantity }) => {
     setQuantity(+{ quantity } - 1);
     dispatch(DecreaseQuantity(id, quantities));
   };
-
+  //edit Price;
+  const handleEditPrice = async () => {
+    try {
+      dispatch(editPrice({ id, num: editedPrice }));
+    } catch (err) {
+      console.log("err", err);
+    }
+  };
   return (
     <div>
       <h2
@@ -47,7 +52,7 @@ const EditFile = ({ name, brand, image, quantity, total, price, id }) => {
           </div>
           <br />
           <div style={{ display: "flex", justifyContent: "space-around" }}>
-            <button
+            {/* <button
               style={{
                 padding: "3px 10px",
                 border: "1px solid grey",
@@ -55,6 +60,31 @@ const EditFile = ({ name, brand, image, quantity, total, price, id }) => {
               }}
             >
               {price}
+            </button> */}
+            <input
+              onChange={(e) => setEditedPrice(e.target.value)}
+              type="number"
+              placeholder={price}
+              style={{
+                borderRadius: "20px",
+                padding: "10px 2px",
+                border: "2px solid grey",
+                color: "grey",
+                textAlign: "center",
+                width: "60px",
+              }}
+            />
+            <button
+              style={{
+                padding: "3px 2px",
+                border: "1px solid grey",
+                borderRadius: "20px",
+                fontWeight: "700",
+                fontSize: "12px",
+              }}
+              onClick={() => handleEditPrice({id})}
+            >
+              Add Price
             </button>
             <div>
               <button
