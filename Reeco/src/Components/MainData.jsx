@@ -3,6 +3,7 @@ import styled from "styled-components";
 import search from "../Images/search.png";
 import printer from "../Images/printer.png";
 import { useSelector, useDispatch } from "react-redux";
+import { Spinner } from "@chakra-ui/react";
 import {
   actionProductData,
   actionApprovedData,
@@ -158,6 +159,8 @@ const MainData = () => {
   const dispatch = useDispatch();
   const stateVal = useSelector((store) => store?.product);
   console.log("store", stateVal);
+  const isAuth = useSelector((state) => state?.isLoading);
+
   //Right Mark
   const handleApproved = async (id) => {
     try {
@@ -277,60 +280,77 @@ const MainData = () => {
               </tr>
             </thead>
             <tbody>
-              {stateVal?.reverse().map((el) => (
-                <tr key={el.id}>
-                  <Td>
-                    <ResponsiveImage src={el.image} alt={el.name} />
-                    {el.name}
-                  </Td>
-                  <Td>{el.brand}</Td>
-                  <Td>{el.price}</Td>
-                  <Td>{el.quantity}</Td>
-                  <Td>{(el.price * el.quantity).toFixed(2)}</Td>
+              {!isAuth ? (
+                stateVal?.reverse().map((el) => (
+                  <tr key={el.id}>
+                    <Td>
+                      <ResponsiveImage src={el.image} alt={el.name} />
+                      {el.name}
+                    </Td>
+                    <Td>{el.brand}</Td>
+                    <Td>{el.price}</Td>
+                    <Td>{el.quantity}</Td>
+                    <Td>{(el.price * el.quantity).toFixed(2)}</Td>
 
-                  <Td
-                    style={{ display: "flex", justifyContent: "space-around" }}
-                  >
-                    <h1
+                    <Td
                       style={{
-                        color: el.status === "Approved" ? "white" : "black",
-                        backgroundColor:
-                          el.status === "Approved"
-                            ? "green"
-                            : el.status === "Missing"
-                            ? "orange"
-                            : el.status === "Missing-urgent"
-                            ? "red"
-                            : "#fff", // You can customize the color for other cases
-                        padding: "8px",
-                        borderRadius: "15px",
+                        display: "flex",
+                        justifyContent: "space-around",
                       }}
                     >
-                      {el.status}
-                    </h1>
-                    <Button
-                      onClick={() => handleApproved(el.id)}
-                      style={{
-                        padding: "10px",
-                      }}
-                    >
-                      <img src={check} width={"20px"} alt="right" />
-                    </Button>
+                      <h1
+                        style={{
+                          color: el.status === "Approved" ? "white" : "black",
+                          backgroundColor:
+                            el.status === "Approved"
+                              ? "green"
+                              : el.status === "Missing"
+                              ? "orange"
+                              : el.status === "Missing-urgent"
+                              ? "red"
+                              : "#fff", // You can customize the color for other cases
+                          padding: "8px",
+                          borderRadius: "15px",
+                        }}
+                      >
+                        {el.status}
+                      </h1>
+                      <Button
+                        onClick={() => handleApproved(el.id)}
+                        style={{
+                          padding: "10px",
+                        }}
+                      >
+                        <img src={check} width={"20px"} alt="right" />
+                      </Button>
 
-                    <Cross id={el.id} name={el.name} />
+                      <Cross id={el.id} name={el.name} />
 
-                    <Edit
-                      id={el.id}
-                      name={el.name}
-                      price={el.price}
-                      quantity={el.quantity}
-                      brand={el.brand}
-                      total={el.total}
-                      image={el.image}
+                      <Edit
+                        id={el.id}
+                        name={el.name}
+                        price={el.price}
+                        quantity={el.quantity}
+                        brand={el.brand}
+                        total={el.total}
+                        image={el.image}
+                      />
+                    </Td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <Td colSpan="6" style={{ textAlign: "center" }}>
+                    <Spinner
+                      thickness="4px"
+                      speed="0.65s"
+                      emptyColor="gray.200"
+                      color="blue.500"
+                      size="xl"
                     />
                   </Td>
                 </tr>
-              ))}
+              )}
             </tbody>
           </Table>
         </div>
