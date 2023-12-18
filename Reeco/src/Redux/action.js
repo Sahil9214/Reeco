@@ -8,7 +8,7 @@ import {
   INCREASE_QUANTITY,
   DECREASE_QUANTITY,
   ADD_DATA,
-  EDIT_PRICE
+  EDIT_PRICE,
 } from "./action.type";
 import axios from "axios";
 //getData
@@ -115,7 +115,7 @@ export const DecreaseQuantity = (action) => async (dispatch) => {
 
     try {
       const updatedData = { quantity: action.quantity - 1 };
-      const res = await axios.patch(
+      await axios.patch(
         `https://rich-ruby-lemming-wear.cyclic.app/reeco/${id}`,
         updatedData
       );
@@ -135,7 +135,10 @@ export const DecreaseQuantity = (action) => async (dispatch) => {
 //Add Data;
 export const addPurchaseData = (payload) => async (dispatch) => {
   try {
-    await axios.post(`https://rich-ruby-lemming-wear.cyclic.app/reeco`, payload);
+    await axios.post(
+      `https://rich-ruby-lemming-wear.cyclic.app/reeco`,
+      payload
+    );
     dispatch({ type: ADD_DATA, payload: res.data });
   } catch (err) {
     dispatch({ type: PRODUCT_ERROR });
@@ -143,15 +146,23 @@ export const addPurchaseData = (payload) => async (dispatch) => {
 };
 
 //edit Price;
-export const editPrice = ({ id, num }) => async (dispatch) => {
-  try {
-  
-    await axios.patch(`https://rich-ruby-lemming-wear.cyclic.app/reeco/${id}`, { price: num });
-    
-    // Dispatch action indicating successful price edit if needed
-    dispatch({ type: EDIT_PRICE, payload: { id, num } });
-  } catch (err) {
-    console.error("Error updating price:", err);
-    dispatch({ type: PRODUCT_ERROR, payload: err.message || "An error occurred" });
-  }
-};
+export const editPrice =
+  ({ id, num }) =>
+  async (dispatch) => {
+    num = +num;
+    try {
+      await axios.patch(
+        `https://rich-ruby-lemming-wear.cyclic.app/reeco/${id}`,
+        { price: num }
+      );
+
+      // Dispatch action indicating successful price edit if needed
+      dispatch({ type: EDIT_PRICE, payload: { id, num } });
+    } catch (err) {
+      console.error("Error updating price:", err);
+      dispatch({
+        type: PRODUCT_ERROR,
+        payload: err.message || "An error occurred",
+      });
+    }
+  };

@@ -1,26 +1,31 @@
 import React, { useState } from "react";
-import { IncreaseQuantity, DecreaseQuantity, editPrice, actionProductData } from "../Redux/action";
+import {
+  IncreaseQuantity,
+  DecreaseQuantity,
+  editPrice,
+  actionProductData,
+  actionApprovedData,
+} from "../Redux/action";
 import { useDispatch } from "react-redux";
-import { Button } from "@chakra-ui/react";
+
 
 const EditFile = ({ name, brand, image, quantity, total, price, id }) => {
   const dispatch = useDispatch();
   const [editedPrice, setEditedPrice] = useState(0);
-  const handleIncrease = async ({ id, quantity }) => {
-    console.log("id", id);
-    console.log("qunatity", quantity);
 
+  const handleIncrease = async ({ id, quantity }) => {
     dispatch(IncreaseQuantity({ id, quantity }));
+    dispatch(actionProductData());
   };
   const handleDecrease = async ({ id, quantity }) => {
-    setQuantity(+{ quantity } - 1);
-    dispatch(DecreaseQuantity(id, quantities));
+    dispatch(DecreaseQuantity({ id, quantity }));
+    dispatch(actionProductData());
   };
   //edit Price;
   const handleEditPrice = async () => {
     try {
       dispatch(editPrice({ id, num: editedPrice }));
-      dispatch(actionProductData())
+      dispatch(actionProductData());
     } catch (err) {
       console.log("err", err);
     }
@@ -83,7 +88,7 @@ const EditFile = ({ name, brand, image, quantity, total, price, id }) => {
                 fontWeight: "700",
                 fontSize: "12px",
               }}
-              onClick={() => handleEditPrice({id})}
+              onClick={() => handleEditPrice({ id })}
             >
               Add Price
             </button>
