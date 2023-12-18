@@ -18,3 +18,9 @@
 <p>Deployed Link--->https://rich-ruby-lemming-wear.cyclic.app/reeco</p>
 <h2>Fronted Deploy</h2>
 <p>Frontend Deploy --->https://reeco-git-main-sahil9214.vercel.app/</p>
+<h2>How to Start Locally while clone</h2>
+<p>Type command in your vs code terminal</p>
+<ul>
+  <li>npm install</li>
+  <li>npm run dev(i am using vite react app)</li>
+</ul>
